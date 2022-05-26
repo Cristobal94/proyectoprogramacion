@@ -46,7 +46,7 @@ public class ControladorReservas {
             vista.getButtonGuardar().setVisible(false);
             vista.getLabelPrueba().setText(usuario.getEmail());
         }
-        // vista.getLabelPrueba().setText(usuario.toString());
+
     }
 
     public void inicializarControlador() {
