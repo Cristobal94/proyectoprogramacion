@@ -1,0 +1,9 @@
+
+Q	java:S125	"<This block of commented-out lines of code should be removed.(¨æ»Ñ
+V	java:S125"<This block of commented-out lines of code should be removed.(òâµ¥úÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(¹œî½
+V	java:S125-"<This block of commented-out lines of code should be removed.(ùÒôşÿÿÿÿ
+S	java:S1060"9Replace this use of System.out or System.err by a logger.(ê¦ªüÿÿÿÿ
+V	java:S1251"<This block of commented-out lines of code should be removed.(¨‰’©úÿÿÿÿ
+H
+java:S1128"2Remove this unused import 'java.sql.SQLException'.(ÛïÆŸ
