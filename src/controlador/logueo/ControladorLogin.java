@@ -55,6 +55,7 @@ public class ControladorLogin {
         }
     }
 
+    //salir de la aplicacion
     private void salirApp() {
         int opcion = JOptionPane.showConfirmDialog(null, "¿Estás seguro de salir?",
                 "SALIR", JOptionPane.YES_NO_OPTION);
