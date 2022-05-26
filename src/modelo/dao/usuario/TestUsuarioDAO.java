@@ -42,8 +42,8 @@ public class TestUsuarioDAO {
             //System.out.println("Error de servidor");
         }*/
         String path = "copia1.csv";
-        //   boolean exitoGuardadoFichero = dao.mandarDatosAFichero(path);
-        //   System.out.printf("Creado fichero FICHEROS/%s %B%n", path, exitoGuardadoFichero);
+     //   boolean exitoGuardadoFichero = dao.mandarDatosAFichero(path);
+     //   System.out.printf("Creado fichero FICHEROS/%s %B%n", path, exitoGuardadoFichero);
         boolean exitoGuardadoBD = dao.guardarDatosBD(path);
         System.out.printf("Guardado en la BD datos de fichero FICHEROS/%s %B%n", path, exitoGuardadoBD);
         /*boolean existeEmailODni = ((UsuarioDAOImpl) dao).existeEmailOdni("01234567", "email@correo.es");

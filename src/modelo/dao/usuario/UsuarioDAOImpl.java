@@ -64,9 +64,12 @@ public class UsuarioDAOImpl implements UsuarioDAO{
             return false;
         String sql = "UPDATE usuarios SET nombre = ?, apellidos = ?, telefono = ?, dni = ?, email = ?, rol = ?, password = ? WHERE dni = ?;";
         PreparedStatement sentencia = conexion.prepareStatement(sql);
-        sentencia.setString(1, newUsuario.getNombre()); sentencia.setString(2, newUsuario.getApellidos());
-        sentencia.setString(3, newUsuario.getTelefono()); sentencia.setString(4, newUsuario.getDni());
-        sentencia.setString(5, newUsuario.getEmail()); sentencia.setInt(6, newUsuario.getRol());
+        sentencia.setString(1, newUsuario.getNombre());
+        sentencia.setString(2, newUsuario.getApellidos());
+        sentencia.setString(3, newUsuario.getTelefono());
+        sentencia.setString(4, newUsuario.getDni());
+        sentencia.setString(5, newUsuario.getEmail());
+        sentencia.setInt(6, newUsuario.getRol());
         sentencia.setString(7, newUsuario.getPassword());
         sentencia.setString(8, dni);
         int resultado = sentencia.executeUpdate();
@@ -95,7 +98,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
     @Override
     public Usuario buscarUsuarioPorId(int id) throws SQLException {
         Usuario usuario = null;
-        //  System.out.println(id);
+      //  System.out.println(id);
         String sql = " select * FROM usuarios WHERE id = ?;";
         PreparedStatement sentencia = conexion.prepareStatement(sql);
         sentencia.setInt(1,id);
@@ -140,10 +143,13 @@ public class UsuarioDAOImpl implements UsuarioDAO{
         sentencia.setString(1, email);
         sentencia.setString(2, password);
         ResultSet resultado = sentencia.executeQuery();
-        while (resultado.next())
+        while (resultado.next()) {
             usuario = new Usuario(resultado.getString("nombre"), resultado.getString("apellidos"),
                     resultado.getString("telefono"), resultado.getString("dni"),
                     resultado.getString("email"), resultado.getString("password"));
+            usuario.setRol(resultado.getInt("rol"));
+        }
+
         if (resultado != null)
             resultado.close();
         if (sentencia != null)
@@ -158,7 +164,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
         try (PrintWriter out = new PrintWriter(inFile)) {
             List<Usuario> lista = obtenerTodosUsuarios();
             for (Usuario usuario: lista) {
-                // System.out.println(usuario);
+               // System.out.println(usuario);
                 out.println(usuario);
                 out.flush();
             }
