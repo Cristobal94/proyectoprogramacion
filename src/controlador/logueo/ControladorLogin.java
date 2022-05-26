@@ -7,7 +7,6 @@ import vista.logueo.Login;
 
 import javax.swing.*;
 import java.sql.SQLException;
-import java.util.Arrays;
 
 public class ControladorLogin {
     private UsuarioDAO modelo;
@@ -37,7 +36,6 @@ public class ControladorLogin {
             Usuario usuario = modelo.loguearUsuarios(email, sPassword.trim());
             if (usuario == null)
                 vista.getLabelError().setText("Ese usuario no existe");
-            //System.out.println(usuario);
             else {
                 vista.getVentanaLogin().setVisible(false);
                 vista.getTextEmail().setText("");
@@ -55,7 +53,6 @@ public class ControladorLogin {
                     "ERROR", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         }
-        // System.out.println(email + " " + sPassword);
     }
 
     private void salirApp() {
