@@ -23,8 +23,8 @@ public class Login {
         ventanaLogin.setSize(300,300);
         ventanaLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventanaLogin.setLocationRelativeTo(null);
-        // ventanaLogin.pack();
-        //  ventanaLogin.setVisible(true);
+       // ventanaLogin.pack();
+      //  ventanaLogin.setVisible(true);
     }
 
     public JFrame getVentanaLogin() {

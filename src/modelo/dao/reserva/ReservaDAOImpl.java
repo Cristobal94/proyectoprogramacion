@@ -5,6 +5,7 @@ import modelo.dao.usuario.Usuario;
 import modelo.dao.usuario.UsuarioDAO;
 import modelo.dao.usuario.UsuarioDAOImpl;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -120,7 +121,7 @@ public class ReservaDAOImpl implements  ReservaDAO{
             return null;
         String sql = " UPDATE reservas SET fecha = ?, duracion = ?, hora_entrada = ?, tipo_reserva = ?, id_usuario = ? WHERE fecha = ? AND hora_entrada = ?;";
         int idUsuairo = usuarioDAO.buscarIDUsuarioPorDni(newReserva.getDniUsuario());
-        //  System.out.println("id usuario " + idUsuairo);
+      //  System.out.println("id usuario " + idUsuairo);
         TipoReserva tipoReserva = TipoReserva.GUIADA;
         PreparedStatement sentencia = conexion.prepareStatement(sql);
         sentencia.setString(1, newReserva.getFecha().toString());
@@ -148,6 +149,7 @@ public class ReservaDAOImpl implements  ReservaDAO{
                 out.println(reserva);
                 out.flush();
             }
+
         } catch (FileNotFoundException | SQLException e) {
             e.printStackTrace();
         }
@@ -157,8 +159,7 @@ public class ReservaDAOImpl implements  ReservaDAO{
     @Override
     public boolean leerDatosFicheroVolcarABD(String path) {
         int contador = 0;
-        String pathLectura = "FICHEROS/" + path;
-        try (Scanner sc = new Scanner(new File(pathLectura))) {
+        try (Scanner sc = new Scanner(new File(path))) {
             while (sc.hasNextLine()) {
                 String[] tokens = sc.nextLine().split(",");
                 System.out.println(Arrays.toString(tokens));

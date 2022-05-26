@@ -37,10 +37,12 @@ public class ControladorLogin {
             Usuario usuario = modelo.loguearUsuarios(email, sPassword.trim());
             if (usuario == null)
                 vista.getLabelError().setText("Ese usuario no existe");
-                //System.out.println(usuario);
+            //System.out.println(usuario);
             else {
                 vista.getVentanaLogin().setVisible(false);
-                new ControladorReservas(usuario).inicializarControlador();
+                vista.getTextEmail().setText("");
+                vista.getTextPassword().setText("");
+                new ControladorReservas(usuario, vista.getVentanaLogin()).inicializarControlador();
             }
             //crear una ventana con una etiqueta y esa etiqueta
             //son los datos del usuario

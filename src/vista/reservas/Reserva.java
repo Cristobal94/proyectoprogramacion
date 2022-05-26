@@ -1,6 +1,9 @@
 package vista.reservas;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
 
 public class Reserva {
     private JFrame ventanaReservas;
@@ -9,15 +12,34 @@ public class Reserva {
     private JPanel panelInferior;
     private JButton botonSalir;
     private JButton botonCerrarSesion;
+    private JButton buttonGuardar;
+    private JButton buttonCargar;
+    private JTextField reservasTextField;
 
-    public Reserva () {
+    public JButton getBotonSalir() {
+        return botonSalir;
+    }
+
+    public JButton getBotonCerrarSesion() {
+        return botonCerrarSesion;
+    }
+
+    public JButton getButtonGuardar() {
+        return buttonGuardar;
+    }
+
+    public JButton getButtonCargar() {
+        return buttonCargar;
+    }
+
+    public Reserva() {
         ventanaReservas = new JFrame("Aplicación reservas");
         ventanaReservas.setContentPane(panelPrincipal);
-        ventanaReservas.setSize(800,800);
+        ventanaReservas.setSize(800, 800);
         ventanaReservas.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventanaReservas.setLocationRelativeTo(null);
         // ventanaLogin.pack();
-        //ventanaReservas.setVisible(true);
+        ventanaReservas.setVisible(true);
     }
 
     public JFrame getVentanaReservas() {
@@ -29,6 +51,16 @@ public class Reserva {
     }
 
     public static void main(String[] args) {
-        new Reserva();
+        JFrame frame = new JFrame("Reserva");
+        frame.setContentPane(new Reserva().panelPrincipal);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
     }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
+
+
 }
